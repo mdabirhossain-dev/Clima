@@ -61,6 +61,7 @@
 				ADAA27CA231BC3FA00365194 /* Model */,
 				ADAA27C9231BC3F200365194 /* View */,
 				ADAA27C8231BC3E500365194 /* Controller */,
+				ADAA27BB231BBFB300365194 /* LaunchScreen.storyboard */,
 				ADAA27B9231BBFB300365194 /* Assets.xcassets */,
 				ADAA27BE231BBFB300365194 /* Info.plist */,
 			);
@@ -79,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				ADAA27B6231BBFAF00365194 /* Main.storyboard */,
-				ADAA27BB231BBFB300365194 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
