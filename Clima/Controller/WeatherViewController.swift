@@ -58,9 +58,13 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         searchTextField.text = ""
     }
     
-    func didUpdateWeather(weather: WeatherModel) {
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
 //        temperatureLabel.text = weather.temperatureString
         print("VC : \(weather.temperature)")
+    }
+    
+    func didFailedWithError(error: Error) {
+        print("WeatherVC Error: \(error)")
     }
 }
 
