@@ -9,6 +9,7 @@
 
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UIViewController {
 
@@ -18,10 +19,15 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     
     var weatherManager = WeatherManager()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
         
         weatherManager.delegate = self
         searchTextField.delegate = self
@@ -82,3 +88,17 @@ extension WeatherViewController: WeatherManagerDelegate {
     }
 }
 
+// MARK: - CL Location Manager Delegate
+
+extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            print("Lati \(location.coordinate.latitude)")
+            print("Longi \(location.coordinate.longitude)")
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Location err: \(error)")
+    }
+}
